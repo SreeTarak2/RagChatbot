@@ -15,7 +15,7 @@ let isRecording = false;
 let isProcessing = false;
 let processingTimeout;
 
-const socketUrl = "ws://localhost:8000/ws/voice"; // change as needed
+const socketUrl = "ws://https://norfolk-bathroom-formation-exceed.trycloudflare.com//ws/voice"; // change as needed
 
 // Create and reuse WebSocket connection
 function initWebSocket() {
