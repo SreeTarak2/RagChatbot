@@ -86,7 +86,7 @@ function uploadFileToServer(file, fileBox) {
   const token = sessionStorage.getItem("accessToken");
   
   const xhr = new XMLHttpRequest();
-  xhr.open("POST", "https://norfolk-bathroom-formation-exceed.trycloudflare.com//upload/", true);
+  xhr.open("POST", "https://norfolk-bathroom-formation-exceed.trycloudflare.com/upload/", true);
   xhr.withCredentials = true;
   // Set the Authorization header
   xhr.setRequestHeader("Authorization", `Bearer ${token}`);
