@@ -1,0 +1,141 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  background: linear-gradient(120deg, #4e54c8, #8f94fb);
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  width: 100%;
+  max-width: 400px;
+  padding: 20px;
+}
+
+.form-box {
+  background: white;
+  padding: 30px;
+  border-radius: 16px;
+  box-shadow: 0 0 20px rgba(0,0,0,0.1);
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.input-group {
+  margin-bottom: 15px;
+}
+
+.input-group label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: 600;
+  color: #444;
+}
+
+.input-group input {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  outline: none;
+  transition: 0.3s;
+}
+
+.input-group input:focus {
+  border-color: #4e54c8;
+}
+
+.btn {
+  width: 100%;
+  padding: 12px;
+  background-color: #4e54c8;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+  background-color: #3c42b0;
+}
+
+.toggle-text {
+  text-align: center;
+  margin-top: 15px;
+  color: #555;
+}
+
+.toggle-text a {
+  color: #4e54c8;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.hidden {
+  display: none;
+}
+
+.google-login {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.google-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background: white;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  padding: 10px;
+  width: 100%;
+  font-weight: 600;
+  color: #444;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.google-btn img {
+  width: 20px;
+  height: 20px;
+}
+
+.google-btn:hover {
+  background-color: #f1f1f1;
+}
+
+.separator {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  margin: 20px 0;
+}
+
+.separator::before,
+.separator::after {
+  content: '';
+  flex: 1;
+  border-bottom: 1px solid #ddd;
+}
+
+.separator:not(:empty)::before {
+  margin-right: .5em;
+}
+.separator:not(:empty)::after {
+  margin-left: .5em;
+}

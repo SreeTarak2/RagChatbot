@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ChatBot | Login & Signup</title>
+    <link rel="stylesheet" href="index.css" />
+</head>
+
+<body>
+    <div class="container">
+        <div class="form-box">
+            <h2 id="form-title">Login</h2>
+            <div class="google-login">
+                <button class="google-btn" onclick="handleGoogleLogin()">
+                    <img src="https://www.svgrepo.com/show/475656/google-color.svg" alt="Google Logo" />
+                    Continue with Google
+                </button>
+            </div>
+
+            <div class="separator">
+                <span>or</span>
+            </div>
+
+            <form id="auth-form">
+                <div class="input-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" required />
+                </div>
+                <div class="input-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" required />
+                </div>
+                <div class="input-group hidden" id="name-group">
+                    <label for="username">User Name</label>
+                    <input type="text" id="username" />
+                </div>
+                <button type="submit" class="btn" id="submit-btn">Continue</button>
+            </form>
+            <p class="toggle-text">
+                Don't have an account? <a href="#" id="toggle-link">Signup</a>
+            </p>
+        </div>
+    </div>
+</body>
+<!-- <script src="./js/login.js"></script> -->
+<script>
+    const form = document.getElementById("auth-form");
+    const toggleLink = document.getElementById("toggle-link");
+    const formTitle = document.getElementById("form-title");
+    const nameGroup = document.getElementById("name-group");
+    let isSignup = false;
+
+
+    const submitBtn = document.querySelector("#submit-btn");
+
+
+    toggleLink.addEventListener("click", () => {
+        isSignup = !isSignup;
+        formTitle.textContent = isSignup ? "Signup" : "Login";
+        toggleLink.textContent = isSignup ? "Login" : "Signup";
+        nameGroup.classList.toggle("hidden");
+        document.querySelector(".toggle-text").innerHTML = isSignup
+            ? 'Already have an account? <a href="#" id="toggle-link">Login</a>'
+            : 'Don\'t have an account? <a href="#" id="toggle-link">Signup</a>';
+        // Rebind toggle
+        document.getElementById("toggle-link").addEventListener("click", () => location.reload());
+    });
+
+    form.addEventListener("submit", async (e) => {
+        e.preventDefault();
+
+        const email = document.querySelector("#email").value.trim();
+        const password = document.querySelector("#password").value.trim();
+        const username = document.querySelector("#username").value.trim();
+
+        const url = isSignup ? "/signup" : "/signin";
+        const body = isSignup ? { email, password, username } : { email, password };
+
+        try {
+            const response = await fetch(`http://127.0.0.1:3000${url}`, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify(body),
+                credentials: "include"
+            });
+
+            const data = await response.json();
+            // console.log(data);
+            if (!response.ok) {
+                throw new Error(data.message || "Something went wrong.");
+            }
+
+            if (data.accessToken) {
+                // Store token (for example in sessionStorage)
+                sessionStorage.setItem("accessToken", data.accessToken);
+
+                alert(`${isSignup ? "Signup" : "Login"} successful!`);
+                // Redirect to chat or dashboard
+                window.location.href = "home.html";
+            } else {
+                alert("Unexpected response. Try again.");
+            }
+
+
+        } catch (err) {
+            console.log(err.message);
+        }
+
+    })
+
+</script>
+
+</html>
