@@ -2,7 +2,7 @@ const input = document.querySelector("#chatboxInput");
 const sendButton = document.querySelector(".send-button");
 const responseContainer = document.querySelector(".responsecontainer");
 
-const API_URL = "https://norfolk-bathroom-formation-exceed.trycloudflare.com//query";
+const API_URL = "https://norfolk-bathroom-formation-exceed.trycloudflare.com/query";
 
 sendButton.addEventListener("click", async () => {
     const userMessage = input.value.trim();
