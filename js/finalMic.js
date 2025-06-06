@@ -15,7 +15,7 @@ let isRecording = false;
 let isProcessing = false;
 let processingTimeout;
 
-const socketUrl = "wss://plenty-roommate-owners-dispatched.trycloudflare.com/ws/voice"; // change as needed
+const socketUrl = "wss://crafts-london-discipline-offices.trycloudflare.com/ws/voice"; // change as needed
 
 // Create and reuse WebSocket connection
 function initWebSocket() {
