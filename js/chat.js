@@ -2,7 +2,7 @@ const input = document.querySelector("#chatboxInput");
 const sendButton = document.querySelector(".send-button");
 const responseContainer = document.querySelector(".responsecontainer");
 
-const API_URL = "https://crafts-london-discipline-offices.trycloudflare.com/query";
+const API_URL = "https://python-wendy-il-editorials.trycloudflare.com/query";
 
 sendButton.addEventListener("click", async () => {
     const userMessage = input.value.trim();
